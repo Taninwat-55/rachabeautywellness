@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@theme inline {
+  --color-primary: #437066;
+  --color-primary-dark: #305d4b;
+  --color-secondary: #9c8c7f;
+  --color-accent: #f2c84a;
+  --color-neutral: #f7f5f0;
+  --color-text-light: #2d2d2d;
+  --color-text-dark: #eeeeee;
+
+  --font-lora: 'Lora', serif;
+  --font-roboto: 'Roboto', sans-serif;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+.transform-style {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+html {
+  scroll-behavior: smooth;
+}
