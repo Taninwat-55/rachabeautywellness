@@ -49,10 +49,10 @@ function Footer() {
             <h4 className='text-lg font-lora font-medium mt-6 mb-2'>Kontakt</h4>
             <p className='font-roboto'>
               <a
-                href='mailto:info@racha-wellness.dk'
+                href='mailto:rachabeautywellness@gmail.com'
                 className='text-text-dark hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
               >
-                info@racha-wellness.dk
+                rachabeautywellness@gmail.com
               </a>
             </p>
             <p className='font-roboto mt-2'>Følg os på sociale medier</p>
