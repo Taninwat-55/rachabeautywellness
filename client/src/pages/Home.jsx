@@ -28,33 +28,33 @@ function Home() {
           </div>
 
           {/* Right: Banner Image */}
-          <div className='flex justify-center'>
+          {/* <div className='flex justify-center'>
             <img
               src='image1.jpg'
               alt='Racha Spa and Wellness banner'
               className='w-full h-auto max-h-[400px] rounded-lg shadow-[0_10px_40px_rgba(67,112,102,0.3)] object-cover'
               loading='lazy'
             />
-          </div>
+          </div> */}
 
-          {/* <div className='flex justify-center'>
+          <div className='flex justify-center'>
             <div className='relative w-full max-w-md h-[300px] perspective'>
-              <div className='relative w-full h-full transition-transform duration-700 transform-style preserve-3d hover:rotate-y-180'> */}
+              <div className='relative w-full h-full transition-transform duration-700 transform-style preserve-3d hover:rotate-y-180'>
           {/* Front Image */}
-          {/* <img
+          <img
                   src='/image1.jpg'
                   alt='Massage front'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg backface-hidden'
-                /> */}
+                />
           {/* Back Image */}
-          {/* <img
+          <img
                   src='/image3.jpg'
                   alt='Massage back'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg rotate-y-180 backface-hidden'
                 />
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </section>
 
