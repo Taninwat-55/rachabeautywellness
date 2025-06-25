@@ -85,7 +85,6 @@ function ContactForm() {
           type='tel'
           id='phone'
           name='phone'
-          required
           value={formData.phone}
           onChange={handleChange}
           className='w-full px-4 py-2 rounded border-none font-roboto text-text-light bg-neutral placeholder:text-primary/70 focus:outline-none focus:ring-2 focus:ring-accent'

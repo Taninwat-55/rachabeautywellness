@@ -13,14 +13,14 @@ This is a mobile-friendly website built for **Racha Beauty & Wellness**, a local
 ## 🛠 Tech Stack
 
 - **Frontend**: React + Vite + TailwindCSS  
-- **Backend** (optional/future): Node.js + Express.js  
-- **Deployment**: Vercel (frontend), Render (backend if needed)  
-- **Email/Booking (future)**: Nodemailer or Resend  
+- **Backend**: Node.js + Express.js  
+- **Deployment**: Render
+- **Email/Booking**: Nodemailer or Resend  
 - **Language**: Danish 🇩🇰  
 
 ## ✅ Features
 
-- Home, About, Services, and Contact pages
+- Home, About, Services, Gallery and Contact pages
 - Service list with durations and pricing
 - Opening hours and phone contact
 - Contact form with name, email, and message
