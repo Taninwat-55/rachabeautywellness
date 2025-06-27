@@ -49,7 +49,7 @@ function Services() {
         </div>
 
         {/* Section B: Wax */}
-        <div>
+        {/* <div>
           <h2 className='text-2xl font-lora font-semibold mb-6 text-primary'>
             Voksbehandlinger
           </h2>
@@ -79,7 +79,7 @@ function Services() {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Section B: Wax */}
         <div>
