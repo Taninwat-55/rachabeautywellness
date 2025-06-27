@@ -15,7 +15,6 @@ function Navbar() {
             alt='Racha Wellness Logo - Hjem'
             className='h-15 w-auto'
           />
-          {/* <span className='text-md font-roboto font-bold'>Racha Wellness</span> */}
         </Link>
 
         {/* Desktop Links */}

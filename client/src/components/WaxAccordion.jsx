@@ -59,7 +59,6 @@ function WaxAccordion({ name, description, options }) {
         {options.map((opt, idx) => (
           <div
             key={idx}
-            // Apply font-roboto for list items
             className='flex justify-between border-b border-text-dark/20 pb-1 font-roboto'
           >
             <span>

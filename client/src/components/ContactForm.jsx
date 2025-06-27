@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; // Import useEffect for message timeout
+import { useState, useEffect } from 'react'; 
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -8,7 +8,7 @@ function ContactForm() {
     message: '',
   });
 
-  const [status, setStatus] = useState(null); // null, 'loading', 'success', 'error'
+  const [status, setStatus] = useState(null); 
 
   // Effect to clear success/error messages after a delay
   useEffect(() => {
@@ -18,7 +18,7 @@ function ContactForm() {
       }, 5000); // Message disappears after 5 seconds
       return () => clearTimeout(timer); // Clear timeout if component unmounts or status changes
     }
-  }, [status]); // Re-run effect when status changes
+  }, [status]); 
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -29,10 +29,9 @@ function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('loading'); // Set status to loading
+    setStatus('loading'); 
 
     try {
-      // const res = await fetch('http://localhost:3001/api/contact', {
       const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
