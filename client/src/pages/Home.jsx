@@ -40,16 +40,16 @@ function Home() {
           <div className='flex justify-center'>
             <div className='relative w-full max-w-md h-[300px] perspective'>
               <div className='relative w-full h-full transition-transform duration-700 transform-style preserve-3d hover:rotate-y-180'>
-          {/* Front Image */}
-          <img
+                {/* Front Image */}
+                <img
                   src='/image1.jpg'
-                  alt='Massage front'
+                  alt='Boutique image front'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg backface-hidden'
                 />
-          {/* Back Image */}
-          <img
+                {/* Back Image */}
+                <img
                   src='/image3.jpg'
-                  alt='Massage back'
+                  alt='Boutique image back'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg rotate-y-180 backface-hidden'
                 />
               </div>

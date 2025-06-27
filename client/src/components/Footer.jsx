@@ -11,9 +11,6 @@ function Footer() {
       <div className='max-w-7xl mx-auto px-6 flex flex-col gap-8 md:grid md:grid-cols-3 md:gap-10'>
         {/* Left: Business Info */}
         <div className='text-left'>
-          {/* <h3 className='text-xl font-lora font-semibold mb-2'>
-            Racha Beauty & Wellness
-          </h3> */}
           <Link
             to='/'
             className='flex items-center gap-2 mb-4'
@@ -23,10 +20,8 @@ function Footer() {
               src={Logo}
               alt='Racha Wellness Logo - Hjem'
               className='h-12 w-auto'
+              aria-label='Shop Logo'
             />
-            <span className='text-md font-lora font-bold'>
-              Racha Beauty & Wellness
-            </span>
           </Link>
           <p className='font-roboto'>Ringstedgade 25A</p>
           <p className='font-roboto'>4700, Næstved</p>
@@ -83,10 +78,10 @@ function Footer() {
           <h4 className='text-lg font-lora font-medium mb-2'>Kontakt</h4>
           <p className='font-roboto'>
             <a
-              href='mailto:info@racha-wellness.dk'
+              href='mailto:rachabeautywellness@gmail.com'
               className='text-text-dark hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
             >
-              info@racha-wellness.dk
+              rachabeautywellness@gmail.com
             </a>
           </p>
           <p className='font-roboto mt-2'>Følg os på sociale medier</p>
