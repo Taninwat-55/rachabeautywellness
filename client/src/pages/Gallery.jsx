@@ -7,7 +7,7 @@ function Gallery() {
     { src: 'gallery-image-1.jpg', alt: 'A soothing massage setting' },
     { src: 'gallery-image-2.jpg', alt: 'Close-up of essential oils' },
     { src: 'gallery-image-3.jpg', alt: 'Relaxing spa interior' },
-    { src: 'gallery-image-4.jpg', alt: 'Therapist performing a treatment' },
+    { src: 'Massage.png', alt: 'Therapist performing a treatment' },
     { src: 'gallery-image-5.jpg', alt: 'Calm waiting area at the spa' },
     { src: 'gallery-image-6.jpg', alt: 'Detail of a hot stone massage' },
   ];
@@ -43,7 +43,7 @@ function Gallery() {
                 loading='lazy' // Keep lazy loading for performance
               />
               {/* Optional: Overlay for image title/description on hover */}
-              <div className='absolute inset-0 bg-primary-dark bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+              <div className='absolute inset-0 bg-primary-dark bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-50 transition-opacity duration-300'>
                 <p className='font-roboto text-text-dark text-lg text-center p-2'>
                   {image.alt}
                 </p>

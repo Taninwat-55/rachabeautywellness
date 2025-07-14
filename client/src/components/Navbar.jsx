@@ -97,13 +97,13 @@ function Navbar() {
           >
             Behandlinger
           </Link>
-          <Link
+          {/* <Link
             to='/galleri'
             onClick={() => setIsOpen(false)}
             className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
           >
             Galleri
-          </Link>
+          </Link> */}
           <Link
             to='/om'
             onClick={() => setIsOpen(false)}
