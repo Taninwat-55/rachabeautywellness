@@ -19,12 +19,21 @@ function Home() {
               Forkæl din krop og sjæl med afslappende massage og velvære i
               hjertet af byen.
             </p>
-            <Link
-              to='/behandlinger'
-              className='font-lora bg-primary text-text-dark px-6 py-3 hover:bg-primary-dark hover:text-text-dark transition focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
-            >
-              Se behandlinger
-            </Link>
+            {/* --- PRIMARY AND SECONDARY CTAs --- */}
+            <div className='flex items-center gap-4'>
+              <Link
+                to='/behandlinger'
+                className='font-lora bg-primary text-text-dark px-6 py-3 hover:bg-primary-dark hover:text-text-dark transition focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+              >
+                Udforsk vores behandlinger
+              </Link>
+              <Link
+                to='/kontakt'
+                className='font-lora text-primary font-semibold hover:underline focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+              >
+                Book din tid nu
+              </Link>
+            </div>
           </div>
 
           {/* Right: Banner Image */}

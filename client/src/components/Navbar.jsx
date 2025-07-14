@@ -1,62 +1,78 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../assets/logo/Racha-Logo.jpg';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const linkClass =
+    'font-lora hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm transition-colors duration-200';
+  const activeLinkClass = 'underline text-accent';
+
   return (
     <nav className='bg-primary text-text-dark shadow-md sticky top-0 z-50'>
       <div className='max-w-7xl mx-auto px-4 py-4 flex justify-between items-center'>
         {/* Logo */}
-        <Link to='/' className='flex items-center gap-2' aria-current='page'>
-          <img
-            src={Logo}
-            alt='Racha Wellness Logo - Hjem'
-            className='h-15 w-auto'
-          />
+        <Link
+          to='/'
+          className='flex items-center gap-2'
+          aria-label='Racha Wellness Logo - Hjem'
+          onClick={() => setIsOpen(false)}
+        >
+          <img src={Logo} alt='Racha Wellness Logo' className='h-12 w-auto' />
         </Link>
 
         {/* Desktop Links */}
         <div className='hidden md:flex gap-6 items-center'>
-          <Link
+          <NavLink
             to='/'
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Hjem
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to='/behandlinger'
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Behandlinger
-          </Link>
-          <Link
+          </NavLink>
+          {/* <NavLink
             to='/galleri'
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Galleri
-          </Link>
-          <Link
+          </NavLink> */}
+          <NavLink
             to='/om'
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Om
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to='/kontakt'
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Kontakt
-          </Link>
+          </NavLink>
         </div>
 
         {/* Mobile Button */}
         <div className='md:hidden'>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className='focus:outline-none text-text-dark focus:ring-2 focus:ring-accent rounded-sm'
+            className='focus:outline-none text-text-dark focus:ring-2 focus:ring-accent rounded-sm p-1'
             aria-label='Toggle menu'
+            aria-expanded={isOpen}
           >
             <svg
               className='w-6 h-6 cursor-pointer'
@@ -79,45 +95,55 @@ function Navbar() {
       {/* Mobile Dropdown */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-40 py-4' : 'max-h-0'
-        } bg-primary`}
+          isOpen ? 'max-h-56 py-4' : 'max-h-0'
+        } bg-primary border-t border-primary-dark`}
       >
-        <div className='flex flex-col items-center space-y-2'>
-          <Link
+        <div className='flex flex-col items-center gap-4'>
+          <NavLink
             to='/'
             onClick={() => setIsOpen(false)}
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Hjem
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to='/behandlinger'
             onClick={() => setIsOpen(false)}
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Behandlinger
-          </Link>
-          {/* <Link
+          </NavLink>
+          {/* <NavLink
             to='/galleri'
             onClick={() => setIsOpen(false)}
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Galleri
-          </Link> */}
-          <Link
+          </NavLink> */}
+          <NavLink
             to='/om'
             onClick={() => setIsOpen(false)}
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Om
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to='/kontakt'
             onClick={() => setIsOpen(false)}
-            className='font-lora hover:underline hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
           >
             Kontakt
-          </Link>
+          </NavLink>
         </div>
       </div>
     </nav>
