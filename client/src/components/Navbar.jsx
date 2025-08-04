@@ -117,7 +117,7 @@ function Navbar() {
           >
             Behandlinger
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to='/galleri'
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
@@ -125,7 +125,7 @@ function Navbar() {
             }
           >
             Galleri
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to='/om'
             onClick={() => setIsOpen(false)}
