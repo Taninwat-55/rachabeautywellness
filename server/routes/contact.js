@@ -1,20 +1,29 @@
 import express from 'express';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
-dotenv.config();
+import { body, validationResult } from 'express-validator';
 
+dotenv.config();
 const router = express.Router();
 
-router.post('/', async (req, res) => {
-  const { name, email, phone, message } = req.body;
+const contactValidationRules = [
+  body('name', 'Navn er påkrævet').not().isEmpty().trim().escape(),
+  body('email', 'Indtast venligst en gyldig email').isEmail().normalizeEmail(),
+  body('phone', 'Telefon er påkrævet').not().isEmpty().trim().escape(),
+  body('message', 'Besked er påkrævet').not().isEmpty().trim().escape(),
+];
 
-  if (!name || !email || !phone || !message) {
-    return res.status(400).json({ error: 'All fields are required.' });
+router.post('/', contactValidationRules, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
   }
+
+  const { name, email, phone, message } = req.body;
 
   try {
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Or another provider
+      service: 'gmail',
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
@@ -23,7 +32,7 @@ router.post('/', async (req, res) => {
 
     await transporter.sendMail({
       from: `"${name}" <${email}>`,
-      to: process.env.MAIL_RECEIVER, 
+      to: process.env.MAIL_RECEIVER,
       subject: 'Ny besked fra Racha hjemmeside',
       html: `
         <h2>Ny besked fra kontaktformularen</h2>

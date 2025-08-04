@@ -2,11 +2,21 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import contactRoutes from './routes/contact.js';
+import rateLimit from 'express-rate-limit';
 
 dotenv.config();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 10, // Limit each IP to 10 requests per window
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.use('/api', limiter); 
 
 app.use(
   cors({

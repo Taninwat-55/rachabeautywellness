@@ -1,5 +1,6 @@
 import Logo from '../assets/logo/Racha-Logo.jpg';
 import { Link } from 'react-router-dom';
+import { FaFacebook } from 'react-icons/fa';
 
 function Footer() {
   return (
@@ -51,18 +52,16 @@ function Footer() {
               </a>
             </p>
             <p className='font-roboto mt-2'>Følg os på sociale medier</p>
-            {/* Placeholder for social media icons/links */}
-            {/* <div className='flex gap-4 mt-2'> */}
-            {/* Replace with actual social media icons/links */}
-            {/* <a
+            <div className='flex gap-4 mt-2'>
+              {' '}
+              <a
                 href='#'
                 aria-label='Facebook'
                 className='text-text-dark hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
-              > */}
-            {/* /* Facebook Icon */}
-            {/* <svg />
+              >
+                <FaFacebook />
               </a>
-            </div> */}
+            </div>
           </div>
         </div>
 
@@ -85,18 +84,15 @@ function Footer() {
             </a>
           </p>
           <p className='font-roboto mt-2'>Følg os på sociale medier</p>
-          {/* Placeholder for social media icons/links */}
-          {/* Replace with actual social media icons/links */}
-          {/* <div className='flex justify-end gap-4 mt-2'>
+          <div className='flex justify-end gap-4 mt-2'>
             <a
-              href='#'
-              aria-label='Instagram'
+              href='https://www.facebook.com/profile.php?id=61575987172452'
+              aria-label='Facebook'
               className='text-text-dark hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
-            > */}
-          {/* Instagram Icon */}
-          {/* <svg  />
+            >
+              <FaFacebook />
             </a>
-          </div> */}
+          </div>
         </div>
       </div>
 

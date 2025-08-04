@@ -51,13 +51,13 @@ function Home() {
               <div className='relative w-full h-full transition-transform duration-700 transform-style preserve-3d hover:rotate-y-180'>
                 {/* Front Image */}
                 <img
-                  src='/image1.jpg'
+                  src='/RachaFrontDesk2.jpg'
                   alt='Boutique image front'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg backface-hidden'
                 />
                 {/* Back Image */}
                 <img
-                  src='/image3.jpg'
+                  src='/FrontDesk.jpg'
                   alt='Boutique image back'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg rotate-y-180 backface-hidden'
                 />
@@ -73,9 +73,9 @@ function Home() {
           {/* Left: Image */}
           <div className='flex justify-center'>
             <img
-              src='image9.jpg'
-              alt='Professionel massagebehandling hos Racha Wellness image'
-              className='w-full max-w-md rounded-lg shadow-lg object-cover'
+              src='Essence.jpg'
+              alt='Essence image'
+              className='w-full max-w-sm rounded-lg shadow-lg object-cover'
               loading='lazy'
             />
           </div>
@@ -204,9 +204,9 @@ function Home() {
           {/* Right: Image */}
           <div className='flex justify-center'>
             <img
-              src='image6.jpg'
+              src='FrontDesk2.jpg'
               alt='Om Racha Wellness'
-              className='w-full max-w-md rounded-lg shadow-lg object-cover'
+              className='w-full max-w-sm rounded-lg shadow-lg object-cover'
               loading='lazy'
             />
           </div>
