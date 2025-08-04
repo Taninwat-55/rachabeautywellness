@@ -44,7 +44,7 @@ function About() {
             </p>
             <p className='font-roboto leading-relaxed'>
               {' '}
-              Besøg os i hjertet af byen og oplev en personlig og professionel
+              Besøg os i Næstved og oplev en personlig og professionel
               behandling i afslappende omgivelser. Din velvære er vores prioritet.
             </p>
             <blockquote className='font-lora italic text-primary text-center max-w-xl mx-auto mt-12'>

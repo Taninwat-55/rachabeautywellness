@@ -17,7 +17,7 @@ function Home() {
             </h1>
             <p className='font-roboto text-lg md:text-xl mb-6 leading-relaxed'>
               Forkæl din krop og sjæl med afslappende massage og velvære i
-              hjertet af byen.
+              hjertet af Næstved.
             </p>
             {/* --- PRIMARY AND SECONDARY CTAs --- */}
             <div className='flex items-center gap-4'>
@@ -51,7 +51,7 @@ function Home() {
               <div className='relative w-full h-full transition-transform duration-700 transform-style preserve-3d hover:rotate-y-180'>
                 {/* Front Image */}
                 <img
-                  src='/RachaFrontDesk2.jpg'
+                  src='/RachaFrontDesk4.jpg'
                   alt='Boutique image front'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg backface-hidden'
                 />
