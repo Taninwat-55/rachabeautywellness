@@ -1,8 +1,8 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import contactRoutes from './routes/contact.js';
-import rateLimit from 'express-rate-limit';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import contactRoutes from "./routes/contact.js";
+import rateLimit from "express-rate-limit";
 
 dotenv.config();
 
@@ -16,21 +16,25 @@ const limiter = rateLimit({
   legacyHeaders: false,
 });
 
-app.use('/api', limiter); 
+app.use("/api", limiter);
 
 app.use(
   cors({
-    origin: [process.env.CLIENT_ORIGIN, 'http://localhost:5173'],
+    origin: [process.env.CLIENT_ORIGIN, "http://localhost:5173"],
     credentials: true,
   })
 );
 
 app.use(express.json());
 
-app.use('/api/contact', contactRoutes);
+app.use("/api/contact", contactRoutes);
+
+app.get("/api/ping", (req, res) => {
+  res.status(200).json({ message: "pong" });
+});
 
 app.use((req, res) => {
-  res.status(404).send('Not Found');
+  res.status(404).send("Not Found");
 });
 
 app.listen(PORT, () => {
