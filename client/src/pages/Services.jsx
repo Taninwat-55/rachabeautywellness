@@ -4,9 +4,9 @@ import WaxAccordion from '../components/WaxAccordion';
 import { Helmet } from 'react-helmet';
 
 function Services() {
-  const waxService = services.find((s) =>
-    s.name.toLowerCase().includes('voks')
-  );
+  // const waxService = services.find((s) =>
+  //   s.name.toLowerCase().includes('voks')
+  // );
 
   return (
     <section className='bg-neutral text-text-light py-20 px-4 min-h-screen'>
@@ -82,7 +82,7 @@ function Services() {
         </div> */}
 
         {/* Section B: Wax */}
-        <div>
+        {/* <div>
           <h2 className='text-2xl font-lora font-semibold mb-6 text-primary'>
             Voksbehandlinger
           </h2>
@@ -91,7 +91,7 @@ function Services() {
             description={waxService.description}
             options={waxService.options}
           />
-        </div>
+        </div> */}
 
         {/* Section C: Beauty */}
         <div>
