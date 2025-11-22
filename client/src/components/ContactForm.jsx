@@ -10,60 +10,80 @@ function ContactForm() {
 
   const [status, setStatus] = useState(null);
 
-  useEffect(() => {
-    const wakeUpServer = async () => {
-      try {
-        await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ping`, {
-          method: "GET",
-        });
-      } catch (err) {
-        console.log("Wake-up ping failed (ignored):", err);
-      }
-    };
-
-    wakeUpServer();
-  }, []);
-
-  // Effect to clear success/error messages after a delay
+  // Clear feedback messages
   useEffect(() => {
     if (status === "success" || status === "error") {
-      const timer = setTimeout(() => {
-        setStatus(null);
-      }, 5000); // Message disappears after 5 seconds
-      return () => clearTimeout(timer); // Clear timeout if component unmounts or status changes
+      const timer = setTimeout(() => setStatus(null), 5000);
+      return () => clearTimeout(timer);
     }
   }, [status]);
 
   const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("loading");
 
-    try {
-      const res = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/contact`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
+    // ------------------------------
+    // 1. Try Web3Forms
+    // ------------------------------
 
-      if (res.ok) {
-        setStatus("success"); // Set status to success
-        setFormData({ name: "", phone: "", email: "", message: "" }); // Clear form
+    const web3Payload = {
+      access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      message: formData.message,
+    };
+
+    try {
+      const web3Res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(web3Payload),
+      });
+
+      const result = await web3Res.json();
+
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", phone: "", email: "", message: "" });
+        return;
       } else {
-        setStatus("error"); // Set status to error
+        console.error("Web3Forms error:", result);
+        throw new Error("Web3Forms failed");
       }
+    } catch (error) {
+      console.warn("Web3Forms failed, falling back to Google Forms…");
+    }
+
+    // ------------------------------
+    // 2. FALLBACK → Google Forms
+    // ------------------------------
+
+    const googleFormURL =
+      "https://docs.google.com/forms/d/e/1FAIpQLScyqN1sPMg1yuND2BRrTI0zZqD7FQAA8MtgzBJ0sQr3RcPYsg/formResponse";
+
+    const googleData = new FormData();
+    googleData.append("entry.390828390", formData.name);
+    googleData.append("entry.64093339", formData.phone);
+    googleData.append("entry.1753531498", formData.email);
+    googleData.append("entry.1328892716", formData.message);
+
+    try {
+      await fetch(googleFormURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: googleData,
+      });
+
+      setStatus("success");
+      setFormData({ name: "", phone: "", email: "", message: "" });
     } catch (err) {
-      console.error("Submission error:", err); // Log full error for debugging
-      setStatus("error"); // Set status to error
+      console.error("Google Form fallback failed:", err);
+      setStatus("error");
     }
   };
 
@@ -87,9 +107,6 @@ function ContactForm() {
           onChange={handleChange}
           className="w-full px-4 py-2 rounded border-none font-roboto text-text-light bg-neutral placeholder:text-primary/70 focus:outline-none focus:ring-2 focus:ring-accent"
           placeholder="Dit navn"
-          aria-invalid={
-            status === "error" && formData.name === "" ? "true" : "false"
-          }
         />
       </div>
 
@@ -106,9 +123,6 @@ function ContactForm() {
           onChange={handleChange}
           className="w-full px-4 py-2 rounded border-none font-roboto text-text-light bg-neutral placeholder:text-primary/70 focus:outline-none focus:ring-2 focus:ring-accent"
           placeholder="Dit telefonnummer"
-          aria-invalid={
-            status === "error" && formData.phone === "" ? "true" : "false"
-          }
         />
       </div>
 
@@ -126,15 +140,15 @@ function ContactForm() {
           onChange={handleChange}
           className="w-full px-4 py-2 rounded border-none font-roboto text-text-light bg-neutral placeholder:text-primary/70 focus:outline-none focus:ring-2 focus:ring-accent"
           placeholder="Din email"
-          aria-invalid={
-            status === "error" && formData.email === "" ? "true" : "false"
-          }
         />
       </div>
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block mb-1 font-roboto font-medium">
+        <label
+          htmlFor="message"
+          className="block mb-1 font-roboto font-medium"
+        >
           Besked
         </label>
         <textarea
@@ -146,35 +160,26 @@ function ContactForm() {
           onChange={handleChange}
           className="w-full px-4 py-2 rounded border-none font-roboto text-text-light bg-neutral placeholder:text-primary/70 focus:outline-none focus:ring-2 focus:ring-accent"
           placeholder="Skriv din besked her..."
-          aria-invalid={
-            status === "error" && formData.message === "" ? "true" : "false"
-          }
         ></textarea>
       </div>
 
-      {/* Submit Button */}
+      {/* Submit */}
       <button
         type="submit"
         className="bg-neutral text-primary font-semibold px-6 py-2 rounded hover:bg-primary-dark hover:text-text-dark transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-        disabled={status === "loading"} // Disable button when submitting
+        disabled={status === "loading"}
       >
-        {status === "loading" ? "Sender..." : "Send besked"}
+        {status === "loading" ? "Sender…" : "Send besked"}
       </button>
 
-      {/* Feedback Messages */}
       {status === "success" && (
-        <p
-          className="text-sm text-text-dark bg-green-700/20 p-3 rounded mt-2 border border-green-700 font-roboto"
-          role="status"
-        >
+        <p className="text-sm text-text-dark bg-green-700/20 p-3 rounded mt-2 border border-green-700 font-roboto">
           Beskeden er sendt! Tak.
         </p>
       )}
+
       {status === "error" && (
-        <p
-          className="text-sm text-red-400 bg-red-700/20 p-3 rounded mt-2 border border-red-700 font-roboto"
-          role="alert"
-        >
+        <p className="text-sm text-red-400 bg-red-700/20 p-3 rounded mt-2 border border-red-700 font-roboto">
           Noget gik galt. Prøv igen senere.
         </p>
       )}
