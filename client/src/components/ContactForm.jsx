@@ -39,6 +39,11 @@ function ContactForm() {
     };
 
     try {
+      console.log("Submitting to Web3Forms...");
+      // Mask key for security in logs, show first 4 chars if exists
+      const key = import.meta.env.VITE_WEB3FORMS_KEY;
+      console.log("API Key present:", !!key, key ? `(${key.slice(0, 4)}...)` : "MISSING");
+
       const web3Res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -46,6 +51,7 @@ function ContactForm() {
       });
 
       const result = await web3Res.json();
+      console.log("Web3Forms response:", result);
 
       if (result.success) {
         setStatus("success");
@@ -56,7 +62,7 @@ function ContactForm() {
         throw new Error("Web3Forms failed");
       }
     } catch (error) {
-      console.warn("Web3Forms failed, falling back to Google Forms…");
+      console.warn("Web3Forms failed, falling back to Google Forms…", error);
     }
 
     // ------------------------------
