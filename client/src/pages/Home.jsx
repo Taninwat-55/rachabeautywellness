@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Leaf, Hand, Sparkles } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 function Home() {
   return (
     <div className='bg-neutral'>
       {/* Hero Section */}
+      <Helmet>
+        <title>Racha Beauty & Wellness - Velkommen til vores hjemmeside</title>
+        <meta name="description" content="Velkommen til Racha Beauty & Wellness - Din vej til sundhed og velvære." />
+      </Helmet>
       <section className='bg-neutral text-text-light py-20 px-4'>
         <div className='max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-8'>
           {/* Left: Text Content */}

@@ -1,12 +1,10 @@
 import services from '../data/servicesData';
 import ServiceCard from '../components/ServiceCard';
-import WaxAccordion from '../components/WaxAccordion';
 import { Helmet } from 'react-helmet';
+import { isChristmasPromoActive } from '../utils/promoUtils';
 
 function Services() {
-  // const waxService = services.find((s) =>
-  //   s.name.toLowerCase().includes('voks')
-  // );
+  const isPromo = isChristmasPromoActive();
 
   return (
     <section className='bg-neutral text-text-light py-20 px-4 min-h-screen'>
@@ -20,9 +18,16 @@ function Services() {
 
       <div className='max-w-7xl mx-auto space-y-20'>
         {/* Header */}
-        <h1 className='text-3xl font-lora font-bold text-center text-primary'>
-          Behandlinger & Priser
-        </h1>
+        <div className="text-center">
+          <h1 className='text-3xl font-lora font-bold text-primary mb-2'>
+            Behandlinger & Priser
+          </h1>
+          {isPromo && (
+            <p className="text-red-600 font-bold animate-bounce">
+              🎄 Julekampagne: Spar 10% på alle massagebehandlinger! 🎄
+            </p>
+          )}
+        </div>
 
         {/* Section A: Massage */}
         <div>
@@ -43,57 +48,13 @@ function Services() {
                   name={service.name}
                   description={service.description}
                   options={service.options}
+                  showDiscount={isPromo} // <--- Discount applied ONLY here
                 />
               ))}
           </div>
         </div>
 
-        {/* Section B: Wax */}
-        {/* <div>
-          <h2 className='text-2xl font-lora font-semibold mb-6 text-primary'>
-            Voksbehandlinger
-          </h2>
-          <div className='bg-primary text-text-dark rounded-xl shadow-md p-6'>
-            <h3 className='text-xl font-bold mb-2'>{waxService.name}</h3>
-            <p className='italic text-sm mb-4'>{waxService.description}</p>
-            <div className='grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm'>
-              {waxService.options.map((opt, idx) => (
-                <div
-                  key={idx}
-                  className='flex justify-between border-b border-text-dark/20 pb-1'
-                >
-                  <span>
-                    {opt.label ? (
-                      <>
-                        <span className='font-semibold'>{opt.label}</span>{' '}
-                        <span className='text-text-dark/70'>
-                          ({opt.duration})
-                        </span>
-                      </>
-                    ) : (
-                      opt.duration
-                    )}
-                  </span>
-                  <span>{opt.price}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
-
-        {/* Section B: Wax */}
-        {/* <div>
-          <h2 className='text-2xl font-lora font-semibold mb-6 text-primary'>
-            Voksbehandlinger
-          </h2>
-          <WaxAccordion
-            name={waxService.name}
-            description={waxService.description}
-            options={waxService.options}
-          />
-        </div> */}
-
-        {/* Section C: Beauty */}
+        {/* Section B: Beauty */}
         <div>
           <h2 className='text-2xl font-lora font-semibold mb-6 text-primary'>
             Skønhedsbehandlinger
@@ -111,6 +72,7 @@ function Services() {
                   name={service.name}
                   description={service.description}
                   options={service.options}
+                  showDiscount={false} 
                 />
               ))}
           </div>
