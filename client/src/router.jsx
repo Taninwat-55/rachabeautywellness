@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import App from './App';
+import PageLoader from './components/PageLoader';
 
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
@@ -9,13 +10,6 @@ const Services = lazy(() => import('./pages/Services'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const NotFound = lazy(() => import('./pages/NotFound'));
-
-// Loading spinner component
-const PageLoader = () => (
-  <div className="flex justify-center items-center h-screen bg-neutral text-primary">
-    Loading...
-  </div>
-);
 
 const router = createBrowserRouter([
   {
