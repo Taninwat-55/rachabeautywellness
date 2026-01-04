@@ -5,6 +5,7 @@ function ContactForm() {
     name: "",
     phone: "",
     email: "",
+    date: "",
     message: "",
   });
 
@@ -35,6 +36,7 @@ function ContactForm() {
       name: formData.name,
       phone: formData.phone,
       email: formData.email,
+      date: formData.date,
       message: formData.message,
     };
 
@@ -146,6 +148,21 @@ function ContactForm() {
           onChange={handleChange}
           className="w-full px-4 py-2 rounded border-none font-roboto text-text-light bg-neutral placeholder:text-primary/70 focus:outline-none focus:ring-2 focus:ring-accent"
           placeholder="Din email"
+        />
+      </div>
+
+      {/* Preferred Date */}
+      <div>
+        <label htmlFor="date" className="block mb-1 font-roboto font-medium">
+          Ønsket dato
+        </label>
+        <input
+          type="date"
+          id="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+          className="w-full px-4 py-2 rounded border-none font-roboto text-text-light bg-neutral focus:outline-none focus:ring-2 focus:ring-accent"
         />
       </div>
 
