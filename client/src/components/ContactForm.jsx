@@ -6,6 +6,7 @@ function ContactForm() {
     phone: "",
     email: "",
     date: "",
+    time: "",
     message: "",
   });
 
@@ -37,6 +38,7 @@ function ContactForm() {
       phone: formData.phone,
       email: formData.email,
       date: formData.date,
+      time: formData.time,
       message: formData.message,
     };
 
@@ -52,7 +54,7 @@ function ContactForm() {
 
       if (result.success) {
         setStatus("success");
-        setFormData({ name: "", phone: "", email: "", message: "", date: "" });
+        setFormData({ name: "", phone: "", email: "", time: "", message: "", date: "" });
         return;
       } else {
         console.error("Web3Forms error:", result);
@@ -83,7 +85,7 @@ function ContactForm() {
       });
 
       setStatus("success");
-      setFormData({ name: "", phone: "", email: "", message: "", date: "" });
+      setFormData({ name: "", phone: "", email: "", time: "", message: "", date: "" });
     } catch (err) {
       console.error("Google Form fallback failed:", err);
       setStatus("error");
@@ -156,6 +158,21 @@ function ContactForm() {
           id="date"
           name="date"
           value={formData.date}
+          onChange={handleChange}
+          className="w-full px-4 py-2 rounded border-none font-roboto text-text-light bg-neutral focus:outline-none focus:ring-2 focus:ring-accent"
+        />
+      </div>
+
+      {/* Preferred Time */}
+      <div>
+        <label htmlFor="time" className="block mb-1 font-roboto font-medium">
+          Ønsket tid
+        </label>
+        <input
+          type="time"
+          id="time"
+          name="time"
+          value={formData.time}
           onChange={handleChange}
           className="w-full px-4 py-2 rounded border-none font-roboto text-text-light bg-neutral focus:outline-none focus:ring-2 focus:ring-accent"
         />
