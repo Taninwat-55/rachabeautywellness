@@ -8,6 +8,7 @@ const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Gallery = lazy(() => import('./pages/Gallery'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Loading spinner component
 const PageLoader = () => (
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: 'behandlinger', element: <Suspense fallback={<PageLoader />}><Services /></Suspense> },
       { path: 'kontakt', element: <Suspense fallback={<PageLoader />}><Contact /></Suspense> },
       { path: 'galleri', element: <Suspense fallback={<PageLoader />}><Gallery /></Suspense> },
+      { path: '*', element: <Suspense fallback={<PageLoader />}><NotFound /></Suspense> },
     ],
   },
 ]);

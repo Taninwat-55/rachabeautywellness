@@ -41,11 +41,6 @@ function ContactForm() {
     };
 
     try {
-      console.log("Submitting to Web3Forms...");
-      // Mask key for security in logs, show first 4 chars if exists
-      const key = import.meta.env.VITE_WEB3FORMS_KEY;
-      console.log("API Key present:", !!key, key ? `(${key.slice(0, 4)}...)` : "MISSING");
-
       const web3Res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -57,7 +52,7 @@ function ContactForm() {
 
       if (result.success) {
         setStatus("success");
-        setFormData({ name: "", phone: "", email: "", message: "" });
+        setFormData({ name: "", phone: "", email: "", message: "", date: "" });
         return;
       } else {
         console.error("Web3Forms error:", result);
@@ -88,7 +83,7 @@ function ContactForm() {
       });
 
       setStatus("success");
-      setFormData({ name: "", phone: "", email: "", message: "" });
+      setFormData({ name: "", phone: "", email: "", message: "", date: "" });
     } catch (err) {
       console.error("Google Form fallback failed:", err);
       setStatus("error");
