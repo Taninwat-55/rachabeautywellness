@@ -1,11 +1,8 @@
 import services from '../data/servicesData';
 import ServiceCard from '../components/ServiceCard';
 import { Helmet } from 'react-helmet';
-import { isChristmasPromoActive } from '../utils/promoUtils';
 
 function Services() {
-  const isPromo = isChristmasPromoActive();
-
   return (
     <section className='bg-neutral text-text-light py-20 px-4 min-h-screen'>
       <Helmet>
@@ -22,11 +19,6 @@ function Services() {
           <h1 className='text-3xl font-lora font-bold text-primary mb-2'>
             Behandlinger & Priser
           </h1>
-          {isPromo && (
-            <p className="text-red-600 font-bold animate-bounce">
-              🎄 Julekampagne: Spar 10% på alle massagebehandlinger! 🎄
-            </p>
-          )}
         </div>
 
         {/* Section A: Massage */}
@@ -48,7 +40,6 @@ function Services() {
                   name={service.name}
                   description={service.description}
                   options={service.options}
-                  showDiscount={isPromo} // <--- Discount applied ONLY here
                 />
               ))}
           </div>
@@ -72,7 +63,6 @@ function Services() {
                   name={service.name}
                   description={service.description}
                   options={service.options}
-                  showDiscount={false} 
                 />
               ))}
           </div>
