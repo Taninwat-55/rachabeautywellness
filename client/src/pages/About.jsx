@@ -3,7 +3,7 @@
 function About() {
   // Use a state or ref if you need to access the image element
   // For simplicity, we just use a static path here
-  const ownerImage = 'RachaWelcome2.jpg'; // Using one of the provided images as a placeholder for the owner
+  const ownerImage = 'RachaWelcome2.webp'; // Using one of the provided images as a placeholder for the owner
 
   return (
     <section className='bg-neutral text-text-light py-20 px-4 min-h-screen'>
@@ -15,7 +15,7 @@ function About() {
           {/* Left: Image */}
           <div className='flex justify-center'>
             <img
-              src='Racha-Logo.jpg'
+              src='Racha-Logo.webp'
               alt='Om os billede'
               className='w-full max-w-sm rounded-lg shadow-lg object-cover'
               loading='lazy'

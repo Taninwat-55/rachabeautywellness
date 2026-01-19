@@ -1,4 +1,4 @@
-import Logo from '../assets/logo/Racha-Logo.jpg';
+import Logo from '../assets/logo/Racha-Logo.webp';
 import { Link } from 'react-router-dom';
 import { FaFacebook } from 'react-icons/fa';
 

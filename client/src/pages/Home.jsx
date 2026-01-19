@@ -56,13 +56,13 @@ function Home() {
               <div className='relative w-full h-full transition-transform duration-700 transform-style preserve-3d hover:rotate-y-180'>
                 {/* Front Image */}
                 <img
-                  src='/RachaFrontDesk4.jpg'
+                  src='/RachaFrontDesk4.webp'
                   alt='Boutique image front'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg backface-hidden'
                 />
                 {/* Back Image */}
                 <img
-                  src='/FrontDesk.jpg'
+                  src='/FrontDesk.webp'
                   alt='Boutique image back'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg rotate-y-180 backface-hidden'
                 />
@@ -78,7 +78,7 @@ function Home() {
           {/* Left: Image */}
           <div className='flex justify-center'>
             <img
-              src='Essence.jpg'
+              src='Essence.webp'
               alt='Essence image'
               className='w-full max-w-sm rounded-lg shadow-lg object-cover'
               loading='lazy'
@@ -209,7 +209,7 @@ function Home() {
           {/* Right: Image */}
           <div className='flex justify-center'>
             <img
-              src='FrontDesk2.jpg'
+              src='FrontDesk2.webp'
               alt='Om Racha Wellness'
               className='w-full max-w-sm rounded-lg shadow-lg object-cover'
               loading='lazy'

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Logo from '../assets/logo/Racha-Logo.jpg';
+import Logo from '../assets/logo/Racha-Logo.webp';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
