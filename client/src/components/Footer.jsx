@@ -55,7 +55,7 @@ function Footer() {
             <div className='flex gap-4 mt-2'>
               {' '}
               <a
-                href='#'
+                href='https://www.facebook.com/profile.php?id=61575987172452'
                 aria-label='Facebook'
                 className='text-text-dark hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
               >

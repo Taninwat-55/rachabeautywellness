@@ -40,14 +40,6 @@ function Navbar() {
           >
             Behandlinger
           </NavLink>
-          {/* <NavLink
-            to='/galleri'
-            className={({ isActive }) =>
-              `${linkClass} ${isActive ? activeLinkClass : ''}`
-            }
-          >
-            Galleri
-          </NavLink> */}
           <NavLink
             to='/om'
             className={({ isActive }) =>
@@ -94,9 +86,8 @@ function Navbar() {
 
       {/* Mobile Dropdown */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-56 py-4' : 'max-h-0'
-        } bg-primary border-t border-primary-dark`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-56 py-4' : 'max-h-0'
+          } bg-primary border-t border-primary-dark`}
       >
         <div className='flex flex-col items-center gap-4'>
           <NavLink
@@ -117,15 +108,6 @@ function Navbar() {
           >
             Behandlinger
           </NavLink>
-          {/* <NavLink
-            to='/galleri'
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              `${linkClass} ${isActive ? activeLinkClass : ''}`
-            }
-          >
-            Galleri
-          </NavLink> */}
           <NavLink
             to='/om'
             onClick={() => setIsOpen(false)}
