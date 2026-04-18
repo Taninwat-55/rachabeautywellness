@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Leaf, Hand, Sparkles } from 'lucide-react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function Home() {
   return (
@@ -59,12 +59,14 @@ function Home() {
                   src='/RachaFrontDesk4.webp'
                   alt='Boutique image front'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg backface-hidden'
+                  fetchpriority='high'
                 />
                 {/* Back Image */}
                 <img
                   src='/FrontDesk.webp'
                   alt='Boutique image back'
                   className='absolute w-full h-full object-cover rounded-lg shadow-lg rotate-y-180 backface-hidden'
+                  loading='lazy'
                 />
               </div>
             </div>
@@ -157,9 +159,9 @@ function Home() {
               description:
                 'Traditionel thailandsk massage med tryk og stræk for fleksibilitet og energi.',
             },
-          ].map((service, index) => (
+          ].map((service) => (
             <div
-              key={index}
+              key={service.name}
               className='bg-primary text-text-dark p-6 rounded-xl shadow-md text-center transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02]'
             >
               <h3 className='font-lora text-xl font-bold mb-2'>

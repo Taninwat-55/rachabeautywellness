@@ -1,6 +1,6 @@
 import services from '../data/servicesData';
 import ServiceCard from '../components/ServiceCard';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function Services() {
   return (
@@ -34,9 +34,9 @@ function Services() {
                   !s.name.toLowerCase().includes('manicure') &&
                   !s.name.toLowerCase().includes('brude')
               )
-              .map((service, index) => (
+              .map((service) => (
                 <ServiceCard
-                  key={index}
+                  key={service.name}
                   name={service.name}
                   description={service.description}
                   options={service.options}
@@ -57,9 +57,9 @@ function Services() {
                   s.name.toLowerCase().includes('manicure') ||
                   s.name.toLowerCase().includes('brude')
               )
-              .map((service, index) => (
+              .map((service) => (
                 <ServiceCard
-                  key={index}
+                  key={service.name}
                   name={service.name}
                   description={service.description}
                   options={service.options}

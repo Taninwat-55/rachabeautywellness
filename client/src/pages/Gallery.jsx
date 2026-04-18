@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function Gallery() {
   // You might store your image data (e.g., paths, alt text) in an array here
@@ -31,9 +31,9 @@ function Gallery() {
 
         {/* Image Grid */}
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-          {galleryImages.map((image, index) => (
+          {galleryImages.map((image) => (
             <div
-              key={index}
+              key={image.src}
               className='relative overflow-hidden rounded-lg shadow-md group'
             >
               <img

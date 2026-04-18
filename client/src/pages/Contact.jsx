@@ -1,8 +1,16 @@
 import ContactForm from '../components/ContactForm';
+import { Helmet } from 'react-helmet-async';
 
 function Contact() {
   return (
     <section className='bg-neutral text-text-light py-20 px-4'>
+      <Helmet>
+        <title>Kontakt os | Racha Beauty &amp; Wellness</title>
+        <meta
+          name='description'
+          content='Kontakt Racha Beauty & Wellness i Næstved. Send en besked eller ring til os for at booke din næste behandling.'
+        />
+      </Helmet>
       <div className='max-w-4xl mx-auto text-center'>
         <h1 className='text-3xl font-lora font-bold mb-6 text-primary'>Kontakt os</h1>
         <p className='font-roboto mb-8 text-lg max-w-2xl mx-auto'>

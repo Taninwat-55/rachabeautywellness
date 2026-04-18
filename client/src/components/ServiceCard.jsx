@@ -8,9 +8,9 @@ function ServiceCard({ name, description, options }) {
       </p>
 
       <ul className='space-y-2 text-sm font-roboto'>
-        {options.map((opt, idx) => (
+        {options.map((opt) => (
           <li
-            key={idx}
+            key={`${opt.label || ''}-${opt.duration}-${opt.price}`}
             className='flex justify-between border-b border-text-dark/20 pb-1'
           >
             <span>

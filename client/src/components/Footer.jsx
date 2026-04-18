@@ -56,6 +56,8 @@ function Footer() {
               {' '}
               <a
                 href='https://www.facebook.com/profile.php?id=61575987172452'
+                target='_blank'
+                rel='noopener noreferrer'
                 aria-label='Facebook'
                 className='text-text-dark hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
               >
@@ -87,6 +89,8 @@ function Footer() {
           <div className='flex justify-end gap-4 mt-2'>
             <a
               href='https://www.facebook.com/profile.php?id=61575987172452'
+              target='_blank'
+              rel='noopener noreferrer'
               aria-label='Facebook'
               className='text-text-dark hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded-sm'
             >

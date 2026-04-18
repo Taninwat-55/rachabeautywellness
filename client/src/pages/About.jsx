@@ -1,4 +1,4 @@
-// import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 function About() {
   // Use a state or ref if you need to access the image element
@@ -7,6 +7,13 @@ function About() {
 
   return (
     <section className='bg-neutral text-text-light py-20 px-4 min-h-screen'>
+      <Helmet>
+        <title>Om os | Racha Beauty &amp; Wellness</title>
+        <meta
+          name='description'
+          content='Lær os at kende – Racha Beauty & Wellness i Næstved. Professionelle behandlinger med passion og erfaring.'
+        />
+      </Helmet>
       <div className='max-w-7xl mx-auto space-y-20'>
         {' '}
         {/* Added space-y to separate sections */}
