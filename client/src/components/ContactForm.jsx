@@ -34,6 +34,9 @@ function ContactForm() {
 
     const web3Payload = {
       access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+      subject: `Ny booking forespørgsel fra ${formData.name}`,
+      from_name: "Racha Spa&Wellness",
+      replyto: formData.email,
       name: formData.name,
       phone: formData.phone,
       email: formData.email,
@@ -208,9 +211,21 @@ function ContactForm() {
       </button>
 
       {status === "success" && (
-        <p className="text-sm text-text-dark bg-green-700/20 p-3 rounded mt-2 border border-green-700 font-roboto">
-          Beskeden er sendt! Tak.
-        </p>
+        <div className="mt-4 space-y-3">
+          <p className="text-sm text-text-dark bg-green-700/20 p-3 rounded border border-green-700 font-roboto">
+            ✅ Tak for din besked! Vi vender tilbage til dig hurtigst muligt.
+          </p>
+          <p className="text-xs text-text-dark/80 bg-amber-600/15 p-3 rounded border border-amber-600/40 font-roboto leading-relaxed">
+            📧 <strong>Bemærk:</strong> Vores svar kan havne i din spam- eller
+            junkmailmappe. Tjek venligst denne mappe, hvis du ikke modtager svar
+            inden for 24 timer.
+            <br />
+            <span className="italic mt-1 block">
+              Please also check your spam/junk folder if you do not receive a
+              reply within 24 hours.
+            </span>
+          </p>
+        </div>
       )}
 
       {status === "error" && (
