@@ -4,12 +4,9 @@ function Gallery() {
   // You might store your image data (e.g., paths, alt text) in an array here
   // For now, we'll use placeholder image sources.
   const galleryImages = [
-    { src: 'gallery-image-1.jpg', alt: 'A soothing massage setting' },
-    { src: 'gallery-image-2.jpg', alt: 'Close-up of essential oils' },
-    { src: 'gallery-image-3.jpg', alt: 'Relaxing spa interior' },
-    { src: 'Massage.png', alt: 'Therapist performing a treatment' },
-    { src: 'gallery-image-5.jpg', alt: 'Calm waiting area at the spa' },
-    { src: 'gallery-image-6.jpg', alt: 'Detail of a hot stone massage' },
+    { src: '/WaitingRoom.webp', alt: 'Roligt venteområde hos Racha Beauty & Wellness' },
+    { src: '/MassageRoom.webp', alt: 'Massagelokale klar til behandling' },
+    { src: '/Brochure.webp', alt: 'Racha Beauty & Wellness reception' },
   ];
 
   return (

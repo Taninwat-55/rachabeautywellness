@@ -41,6 +41,14 @@ function Navbar() {
             Behandlinger
           </NavLink>
           <NavLink
+            to='/galleri'
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
+          >
+            Galleri
+          </NavLink>
+          <NavLink
             to='/om'
             className={({ isActive }) =>
               `${linkClass} ${isActive ? activeLinkClass : ''}`
@@ -107,6 +115,15 @@ function Navbar() {
             }
           >
             Behandlinger
+          </NavLink>
+          <NavLink
+            to='/galleri'
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeLinkClass : ''}`
+            }
+          >
+            Galleri
           </NavLink>
           <NavLink
             to='/om'
