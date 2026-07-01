@@ -41,7 +41,7 @@ function Footer() {
           <div className='block md:hidden mt-6'>
             <h4 className='text-lg font-lora font-medium mb-2'>Åbningstider</h4>
             <p className='font-roboto'>Mandag – Fredag: 09:00 – 20:00</p>
-            <p className='font-roboto'>Lørdag – Søndag: 10:00 – 17:00</p>
+            <p className='font-roboto'>Lørdag – Søndag: Lukket</p>
             <h4 className='text-lg font-lora font-medium mt-6 mb-2'>Kontakt</h4>
             <p className='font-roboto'>
               <a
@@ -71,7 +71,7 @@ function Footer() {
         <div className='hidden md:block text-center'>
           <h4 className='text-lg font-lora font-medium mb-2'>Åbningstider</h4>
           <p className='font-roboto'>Mandag – Fredag: 09:00 – 20:00</p>
-          <p className='font-roboto'>Lørdag – Søndag: 10:00 – 17:00</p>
+          <p className='font-roboto'>Lørdag – Søndag: Lukket</p>
         </div>
 
         {/* Desktop only: Contact */}
